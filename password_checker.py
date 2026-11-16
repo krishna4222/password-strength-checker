@@ -1,41 +1,40 @@
+
 import string
+from getpass import getpass
 
 def check_password_strength(password):
     strength = 0
     feedback = []
 
-    if len(password) >= 8:
-        strength += 1
-    else:
-        feedback.append("Password should be at least 8 characters long.")
+    checks = [
+        (len(password) >= 8, "Password should be at least 8 characters long."),
+        (any(c.islower() for c in password), "Add at least one lowercase letter."),
+        (any(c.isupper() for c in password), "Add at least one uppercase letter."),
+        (any(c.isdigit() for c in password), "Add at least one number."),
+        (any(c in string.punctuation for c in password),
+         "Add at least one special character.")
+    ]
 
-    if any(char.islower() for char in password):
-        strength += 1
-    else:
-        feedback.append("Add at least one lowercase letter.")
+    for passed, message in checks:
+        if passed:
+            strength += 1
+        else:
+            feedback.append(message)
 
-    if any(char.isupper() for char in password):
-        strength += 1
-    else:
-        feedback.append("Add at least one uppercase letter.")
-
-    if any(char.isdigit() for char in password):
-        strength += 1
-    else:
-        feedback.append("Add at least one number.")
-
-    if any(char in string.punctuation for char in password):
-        strength += 1
-    else:
-        feedback.append("Add at least one special character (!, @, #, etc.)")
+    print(f"\nPassword strength score: {strength}/5")
 
     if strength >= 4:
-        print("✅ Strong password!")
+        print("Strong password!")
+    elif strength == 3:
+        print("Moderate password.")
     else:
-        print("⚠️ Weak password:")
+        print("Weak password.")
+
+    if feedback:
+        print("\nSuggestions:")
         for item in feedback:
             print("-", item)
 
-# Example usage:
-password = input("Enter your password: ")
-check_password_strength(password)
+if __name__ == "__main__":
+    password = getpass("Enter your password: ")
+    check_password_strength(password)
