@@ -1,100 +1,144 @@
-
 # 🔐 Password Strength Checker
 
-A simple Python-based application that evaluates password strength using five predefined security rules and provides feedback to help users create stronger passwords.
+A simple Python-based cybersecurity project that evaluates password strength using predefined security rules and provides suggestions to improve weak passwords.
 
-## 📌 Project Overview
+## 👨‍💻 About the Project
 
-This project checks whether a password meets basic security requirements by examining its length, character types and use of special characters.
+This project was developed to understand basic password security concepts and Python programming.
 
-The program calculates a strength score and displays whether the password is strong or weak.
+The Password Strength Checker analyses a password against five security conditions and calculates a score out of 5. Based on the score, it classifies the password as **Strong**, **Moderate**, or **Weak**.
 
 ## ✨ Features
 
-- Checks minimum password length (8 characters).
-- Detects lowercase letters.
-- Detects uppercase letters.
+- Checks whether the password contains at least 8 characters.
+- Checks for lowercase letters.
+- Checks for uppercase letters.
 - Checks for numeric digits.
-- Identifies special characters.
-- Calculates a password strength score.
-- Provides feedback when password requirements are not met.
+- Checks for special characters.
+- Calculates a password strength score out of 5.
+- Provides suggestions when password requirements are missing.
+- Uses hidden password input through Python's `getpass` module.
 
 ## 🛠️ Technologies Used
 
-- Python 3
-- string module
-- Built-in Python functions
+- **Programming Language:** Python
+- **Editor:** Visual Studio Code
+- **Libraries:** `string`, `getpass`
+- **Version Control:** Git and GitHub
 
-## ⚙️ How It Works
+## 📋 Password Evaluation Rules
 
-The program evaluates a password against five conditions:
+| Security Requirement | Description | Score |
+|---|---|---:|
+| Minimum Length | At least 8 characters | 1 |
+| Lowercase Letter | At least one lowercase letter | 1 |
+| Uppercase Letter | At least one uppercase letter | 1 |
+| Number | At least one digit | 1 |
+| Special Character | At least one special character | 1 |
+| **Total** | | **5** |
 
-1. At least 8 characters.
-2. At least one lowercase letter.
-3. At least one uppercase letter.
-4. At least one number.
-5. At least one special character.
+### Password Classification
 
-Each satisfied condition adds one point to the score.
+- **4–5 points:** Strong Password
+- **3 points:** Moderate Password
+- **0–2 points:** Weak Password
 
-- 4–5 points: Strong password.
-- 0–3 points: Weak password.
+## 🚀 How to Run the Project
 
-## 🚀 How to Run
+### Step 1: Clone the Repository
 
-1. Clone this repository:
+```bash
+git clone https://github.com/krishna4222/password-strength-checker.git
+```
 
-   ```bash
-   git clone https://github.com/krishna4222/password-strength-checker.git
-   ```
+### Step 2: Open the Project Folder
 
-2. Open the project folder:
+```bash
+cd password-strength-checker
+```
 
-   ```bash
-   cd password-strength-checker
-   ```
+### Step 3: Run the Python Program
 
-3. Run the Python program:
+```bash
+py password_checker.py
+```
 
-   ```bash
-   python password_checker.py
-   ```
+You can also use:
 
-4. Enter a password when prompted.
+```bash
+python password_checker.py
+```
 
-## 💻 Example Output
+If the `python` command is not recognised on Windows, try `py`.
 
-**Example: Strong password**
+### Step 4: Enter a Test Password
+
+The program will ask you to enter a password. Your input is hidden while typing.
+
+## 🧪 Testing and Results
+
+The program was tested with different password inputs.
+
+### Test 1: Strong Password
+
+**Expected behaviour:** The program should identify a password meeting all five conditions.
 
 ```text
-Enter your password: Secure@123
+Password strength score: 5/5
 Strong password!
 ```
 
-**Example: Weak password**
+**Status:** Passed
+
+### Test 2: Weak Password
+
+**Expected behaviour:** The program should identify missing password requirements and display suggestions.
 
 ```text
-Enter your password: hello
-Weak password:
+Password strength score: 1/5
+Weak password.
+
+Suggestions:
 - Password should be at least 8 characters long.
 - Add at least one uppercase letter.
 - Add at least one number.
-- Add at least one special character (!, @, #, etc.)
+- Add at least one special character.
 ```
+
+**Status:** Passed
+
+### Test 3: Moderate Password
+
+**Expected behaviour:** A password meeting exactly three conditions should receive a score of 3/5 and be classified as Moderate.
+
+**Status:** Pending testing
 
 ## 🎯 Learning Outcomes
 
-- Python conditional statements.
-- Functions and loops.
+Through this project, I practised:
+
+- Python functions and conditional statements.
+- Lists and loops.
 - String manipulation.
-- Password validation.
-- Basic cybersecurity concepts.
+- Password validation techniques.
+- Using Python's built-in modules.
+- Basic cybersecurity and password security concepts.
+- Testing and documenting a Python project.
+- Using GitHub for project version control.
 
 ## ⚠️ Limitations
 
-This is a basic educational, rule-based password checker. It does not assess password reuse, dictionary attacks, breached passwords or resistance to advanced guessing techniques.
+This is a basic educational, rule-based password checker.
 
-It should not be treated as a complete password-security assessment tool.
+It does not evaluate:
+
+- Password reuse.
+- Dictionary-based password attacks.
+- Previously breached passwords.
+- Resistance to advanced password-guessing techniques.
+- Context-specific or predictable passwords.
+
+A high score does not guarantee that a password is secure. This project should not be treated as a complete password-security assessment tool.
 
 ## 👨‍💻 Author
 
@@ -102,5 +146,10 @@ It should not be treated as a complete password-security assessment tool.
 
 MSc Cyber Security Student – Aston University, UK
 
-[GitHub](https://github.com/krishna4222)
-[LinkedIn](https://www.linkedin.com/in/krishna4222)
+**GitHub:** [github.com/krishna4222](https://github.com/krishna4222)
+
+**LinkedIn:** [linkedin.com/in/krishna4222](https://linkedin.com/in/krishna4222)
+
+---
+
+⭐ *Learning, building and growing in cybersecurity every day.*
