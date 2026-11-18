@@ -1,4 +1,3 @@
-
 import string
 from getpass import getpass
 
